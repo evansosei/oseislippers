@@ -1,0 +1,6 @@
+{
+  "name": "OSEI SLIPPERS",
+  "description": "Minimalist luxury footwear store featuring seamless cart, secure checkout, and interactive order history dashboard.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
