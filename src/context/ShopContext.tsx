@@ -238,10 +238,13 @@ export const ShopProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const placeOrder = (orderData: Partial<Order>): Order => {
     const subtotal = cart.reduce((acc, item) => acc + item.price * item.quantity, 0);
     const discount = (subtotal * discountPercentage) / 100;
-    const shippingCost = subtotal >= 75 ? 0 : 8.00;
-    const giftWrapCost = isGiftWrapped ? 5.00 : 0;
-    const tax = (subtotal - discount) * 0.08;
-    const total = subtotal - discount + shippingCost + giftWrapCost + tax;
+    const shippingMethod = orderData.shippingMethod || 'Standard';
+    const shippingCost = orderData.shippingCost !== undefined 
+      ? orderData.shippingCost 
+      : (shippingMethod === 'Standard' ? (subtotal >= 75 ? 0 : 8.00) : (shippingMethod === 'Express Air' ? 14.00 : 4.00));
+    const giftWrapCost = orderData.giftWrapCost !== undefined ? orderData.giftWrapCost : (isGiftWrapped ? 5.00 : 0);
+    const tax = orderData.tax !== undefined ? orderData.tax : (subtotal - discount) * 0.08;
+    const total = orderData.total !== undefined ? orderData.total : (subtotal - discount + shippingCost + giftWrapCost + tax);
 
     const newOrderNumber = `OSEI-${Math.floor(10000 + Math.random() * 90000)}`;
     const now = new Date();

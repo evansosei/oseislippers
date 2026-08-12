@@ -48,11 +48,11 @@ export const FitAssistantModal: React.FC = () => {
     } catch (err) {
       console.warn('Fallback to local intelligent fit recommendation', err);
       setRecommendation({
-        recommendationTitle: "The Nord Shearling Mule",
-        recommendedProductId: "ryte-shearling-lounge-02",
-        keyBenefit: "Moisture-wicking temperature control with high-density shock absorption",
-        detailedReasoning: "Based on your hardwood floors and desire for cozy all-season comfort, Australian shearling regulates foot temperature seamlessly while natural latex dampens footsteps.",
-        sizingAdvice: "True to size. Choose one size up if wearing thick wool socks."
+        recommendationTitle: "The Artisan Braided Toe-Ring Sandal",
+        recommendedProductId: "ryte-braided-toering-01",
+        keyBenefit: "Moisture-wicking vegetable-tanned leather footbed with ergonomic toe-ring stability",
+        detailedReasoning: "Based on your floor preference and desired comfort, white calfskin leather regulates foot temperature seamlessly while the contoured tan leather sole dampens joint pressure.",
+        sizingAdvice: "True to size. Choose one size up if you prefer extra heel clearance."
       });
     } finally {
       setIsLoading(false);

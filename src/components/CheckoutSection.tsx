@@ -106,10 +106,14 @@ export const CheckoutSection: React.FC = () => {
         placeOrder({
           shippingAddress: address,
           shippingMethod,
+          shippingCost,
+          tax,
+          giftWrapCost,
+          total: grandTotal,
           paymentMethod: {
             type: paymentType,
-            brand: paymentType === 'credit_card' ? 'Visa' : paymentType === 'apple_pay' ? 'Apple Pay' : paymentType === 'google_pay' ? 'Google Pay' : 'Klarna',
-            last4: paymentType === 'credit_card' ? cardNumber.slice(-4) : '4242'
+            brand: paymentType === 'momo' ? `${momoProvider} MoMo (${momoNumber})` : paymentType === 'credit_card' ? 'Visa' : paymentType === 'apple_pay' ? 'Apple Pay' : paymentType === 'google_pay' ? 'Google Pay' : 'Klarna',
+            last4: paymentType === 'momo' ? (momoNumber.slice(-4) || '9320') : paymentType === 'credit_card' ? cardNumber.slice(-4) : '4242'
           }
         });
       }, 1000);

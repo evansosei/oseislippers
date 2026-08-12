@@ -15,7 +15,7 @@ async function startServer() {
 
   // API Route: Health Check
   app.get('/api/health', (req, res) => {
-    res.json({ status: 'ok', store: 'Ryte Slippers API' });
+    res.json({ status: 'ok', store: 'Osei Luxury Slippers API' });
   });
 
   // API Route: AI Fit Advisor / Warmth Assistant
@@ -27,34 +27,35 @@ async function startServer() {
       if (!apiKey) {
         // Fallback intelligent recommendation if key is pending configuration
         return res.json({
-          recommendation: "Based on your preferences, we strongly recommend **The Nord Shearling Mule** or **The Cloud Foam Slide**.",
-          reasoning: "For hardwood floors and cozy warmth, Australian shearling provides optimal temperature regulation and quiet stepping, while cloud foam delivers zero-gravity shock absorption.",
-          suggestedProducts: ['ryte-shearling-lounge-02', 'ryte-cloud-slide-01'],
-          careTip: "Keep your slippers fresh by airing them out weekly and spot cleaning with soft suede/microfiber brushes."
+          recommendationTitle: "The Artisan Braided Toe-Ring Sandal",
+          recommendedProductId: "ryte-braided-toering-01",
+          keyBenefit: "Moisture-wicking vegetable-tanned leather footbed with ergonomic toe-ring stability",
+          detailedReasoning: "Based on your preferences, handcrafted white calfskin leather regulates temperature seamlessly while the contoured footbed absorbs joint pressure on hardwood and tile surfaces.",
+          sizingAdvice: "True to size. Choose one size up if you prefer extra heel clearance."
         });
       }
 
       const ai = new GoogleGenAI({ apiKey });
-      const prompt = `You are the lead footwear ergonomics & material expert for "Ryte Slippers", a luxury Japanese/Scandinavian minimalist indoor slipper brand.
-      A customer is looking for their perfect slipper recommendation.
+      const prompt = `You are the lead footwear ergonomics & material expert for "Osei Slippers", a luxury handcrafted sandal and slipper brand.
+      A customer is looking for their perfect footwear recommendation.
       Customer Specs:
       - Floor surface: ${floorType || 'Hardwood'}
       - Warmth desired: ${warmthPreference || 'Cozy all-season'}
       - Foot support needs: ${supportNeeds || 'Medium ergonomic arch support'}
-      - Home lifestyle: ${lifestyle || 'Working from home & relaxing'}
+      - Home lifestyle: ${lifestyle || 'Working from home & lounging'}
 
-      Recommend 1 primary Ryte Slipper from our collection:
-      1. The Cloud Foam Slide (Zero-gravity EVA, waterproof, quick-drying, shock-absorbing)
-      2. The Nord Shearling Mule (100% Australian shearling, cozy suede, luxury warm fleece)
-      3. The Oslo Boiled Wool Clog (Contoured cork arch support, recycled merino wool)
-      4. The Kyoto Leather Lounge Slipper (Full-grain Italian leather, ultra-sleek, minimalist)
-      5. The Alpine Quilted Thermal Slipper (PrimaLoft insulation, water repellent, cold-patio safe)
+      Recommend 1 primary Osei Slipper model from our collection:
+      1. The Artisan Braided Toe-Ring Sandal (Pure White & Tan, Ergonomic toe loop, Hand-braided leather)
+      2. The Nomad Woven Leather Cross Mule (Hand-Woven Dark Brown Italian Calfskin, Shock-absorbing sole)
+      3. The Venetian Horsebit Leather Slide (Polished Black Calfskin, Gold horsebit buckle, Orthotic heel cup)
+      4. The Heritage H-Monogram Leather Slide (Tan leather, Geometric H-strap, Lightweight EVA sole)
+      5. The Maison V-Monogram Leather Slide (Deep Navy & Cognac, Gold V-Hardware emblem)
 
       Respond in clean JSON with fields:
       - recommendationTitle: String
-      - recommendedProductId: String (one of: ryte-cloud-slide-01, ryte-shearling-lounge-02, ryte-wool-mule-03, ryte-leather-clog-04, ryte-quilted-bootie-05)
+      - recommendedProductId: String (one of: ryte-braided-toering-01, ryte-woven-cross-mule-02, ryte-venetian-horsebit-03, ryte-heritage-hslide-04, ryte-maison-vslide-05)
       - keyBenefit: String
-      - detailedReasoning: String (150 words max, stylish, helpful, minimalist luxury tone)
+      - detailedReasoning: String (150 words max, stylish, helpful, luxury tone)
       - sizingAdvice: String
       `;
 
