@@ -20,7 +20,7 @@ export const HeroBanner: React.FC = () => {
           {/* Hero Image Container */}
           <div className="relative h-[480px] sm:h-[560px] lg:h-[620px] w-full">
             <img
-              src="/src/assets/images/tan_cross_hbuckle_slide_1786541914164.jpg"
+              src="/assets/images/slippers5.jpg"
               alt="Osei Handcrafted Leather Footwear"
               className="w-full h-full object-cover object-center"
               referrerPolicy="no-referrer"

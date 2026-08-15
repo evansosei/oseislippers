@@ -44,9 +44,9 @@ export const MOCK_ORDERS: Order[] = [
         name: 'The Artisan Braided Toe-Ring Sandal',
         price: 149.99,
         selectedSize: 42,
-        selectedColor: { name: 'Pure White & Tan', hex: '#FFFFFF', image: '/src/assets/images/white_braided_toering_sandal_1786541856589.jpg' },
+        selectedColor: { name: 'Pure White & Tan', hex: '#FFFFFF', image: '/assets/images/slippers1.jpg' },
         quantity: 1,
-        image: '/src/assets/images/white_braided_toering_sandal_1786541856589.jpg',
+        image: '/assets/images/slippers1.jpg',
         maxStock: 10
       }
     ],
@@ -86,9 +86,9 @@ export const MOCK_ORDERS: Order[] = [
         name: 'The Venetian Horsebit Leather Slide',
         price: 219.99,
         selectedSize: 42,
-        selectedColor: { name: 'Nero Black & Gold', hex: '#000000', image: '/src/assets/images/black_horsebit_leather_slide_1786541888011.jpg' },
+        selectedColor: { name: 'Nero Black & Gold', hex: '#000000', image: '/assets/images/slippers3.jpg' },
         quantity: 1,
-        image: '/src/assets/images/black_horsebit_leather_slide_1786541888011.jpg',
+        image: '/assets/images/slippers3.jpg',
         maxStock: 5
       }
     ],

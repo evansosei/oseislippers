@@ -131,7 +131,7 @@ export const Footer: React.FC = () => {
             <p>© 2026 Osei Slippers Inc. All rights reserved.</p>
             <span className="hidden sm:inline text-stone-600">•</span>
             <p className="flex items-center justify-center gap-1 text-stone-300 font-medium">
-              Made with <img src="/src/assets/images/red_heart.svg" alt="love" className="w-4 h-4 inline-block mx-0.5" referrerPolicy="no-referrer" /> by Evans Osei Kwaku
+              Made with <img src="/assets/images/red_heart.svg" alt="love" className="w-4 h-4 inline-block mx-0.5" referrerPolicy="no-referrer" /> by Evans Osei Kwaku
             </p>
           </div>
           <div className="flex space-x-6">
