@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, X, Check, ArrowRight, ShieldCheck, Thermometer } from 'lucide-react';
 import { useShop } from '../context/ShopContext';
+import { getFootwearRecommendation } from '../services/aiAdvisor';
 
 export const FitAssistantModal: React.FC = () => {
   const {
@@ -28,25 +29,15 @@ export const FitAssistantModal: React.FC = () => {
     setIsLoading(true);
 
     try {
-      const res = await fetch('/api/fit-advisor', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          floorType,
-          warmthPreference,
-          supportNeeds,
-          lifestyle
-        })
+      const data = await getFootwearRecommendation({
+        floorType,
+        warmthPreference,
+        supportNeeds,
+        lifestyle,
       });
-
-      if (res.ok) {
-        const data = await res.json();
-        setRecommendation(data);
-      } else {
-        throw new Error('API offline');
-      }
+      setRecommendation(data);
     } catch (err) {
-      console.warn('Fallback to local intelligent fit recommendation', err);
+      console.warn('Fallback to default recommendation', err);
       setRecommendation({
         recommendationTitle: "The Artisan Braided Toe-Ring Sandal",
         recommendedProductId: "ryte-braided-toering-01",
